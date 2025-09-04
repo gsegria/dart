@@ -1,0 +1,115 @@
+# Python 編譯檔
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pytest 產生的暫存檔案
+.cache/
+.pytest_cache/
+
+# 測試報告
+*.log
+*.tmp
+*.coverage
+coverage.xml
+htmlcov/
+
+# 虛擬環境（如果有）
+venv/
+env/
+ENV/
+
+
+################################################
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# 忽略所有子資料夾裡的 Debug / Release / build 資料夾
+**/Debug/
+**/Release/
+**/build/
+
+# 忽略編譯產物
+**/*.o
+**/*.elf
+**/*.bin
+**/*.hex
+**/*.map
+**/*.out
+**/*.list
+**/*.d
+**/*.log
+**/*.lst
+
+# 忽略備份與暫存檔
+**/*~
+**/*.swp
+**/*.bak
+
+# 忽略 IDE metadata（如果不希望上傳 IDE 設定）
+**/.settings/
+**/.metadata/
+**/*.launch
+
+# 忽略系統檔案
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+
+
+################################################
+# 忽略 node_modules（npm 安裝的所有套件）
+node_modules/
+
+# 忽略暫存檔與 log 檔
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 忽略環境變數檔（常用於存放敏感資訊）
+.env
+.env.local
+.env.*.local
+
+# 忽略作業系統產生的檔案
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# 忽略 VS Code 設定
+.vscode/
+
+# 忽略打包後的檔案（依你的專案可能是 dist/、build/ 等）
+dist/
+build/
+
+
+
+
+
+#忽略
+*.log
+*.tmp
+*.bak
+pp.bat
