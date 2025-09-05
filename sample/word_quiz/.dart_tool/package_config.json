@@ -1,0 +1,14 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "word_quiz",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
+    }
+  ],
+  "generator": "pub",
+  "generatorVersion": "3.9.2",
+  "pubCache": "file:///C:/Users/gs/AppData/Local/Pub/Cache"
+}

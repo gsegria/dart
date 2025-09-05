@@ -1,0 +1,15 @@
+name: tap_ufo_game
+description: A simple UFO tapping game using Flutter + Flame.
+version: 1.0.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^1.16.0
+
+flutter:
+  assets:
+    - assets/images/64x64.png

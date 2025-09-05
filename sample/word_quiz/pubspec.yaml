@@ -1,0 +1,9 @@
+name: word_quiz
+description: A simple word quiz CLI tool written in Dart.
+version: 1.0.0
+
+environment:
+  sdk: '>=3.9.0 <4.0.0'
+
+dependencies:
+  # 目前不需要額外套件，可留空或刪除這段也行

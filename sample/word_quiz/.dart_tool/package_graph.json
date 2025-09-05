@@ -1,0 +1,14 @@
+{
+  "roots": [
+    "word_quiz"
+  ],
+  "packages": [
+    {
+      "name": "word_quiz",
+      "version": "1.0.0",
+      "dependencies": [],
+      "devDependencies": []
+    }
+  ],
+  "configVersion": 1
+}
