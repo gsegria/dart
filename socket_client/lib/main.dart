@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // 時間戳
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Chat',
+      title: 'Flutter TCP Chat',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: ChatPage(),
     );
@@ -33,14 +33,12 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
-    _connectToServer();
+    _connect();
   }
 
-  String _timestamp() {
-    return DateFormat('HH:mm').format(DateTime.now());
-  }
+  String _timestamp() => DateFormat('HH:mm').format(DateTime.now());
 
-  void _connectToServer() async {
+  void _connect() async {
     try {
       _socket = await Socket.connect(serverIp, serverPort).timeout(Duration(seconds: 5));
       _addMessage("Connected to $serverIp:$serverPort");
@@ -97,7 +95,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Flutter ↔ Python Chat")),
+      appBar: AppBar(title: Text("Flutter ↔ TCP Chat")),
       body: Column(
         children: [
           Expanded(
