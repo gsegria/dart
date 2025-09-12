@@ -25,7 +25,7 @@ class HeartHomePage extends StatefulWidget {
 }
 
 class _HeartHomePageState extends State<HeartHomePage> {
-  final int userId = 1;
+  final int userId = 32;
   final String uploadUrl = 'http://localhost/login_demo/heart_dart.php';
   final String listUrl = 'http://localhost/login_demo/heart_list_draw.php';
 
@@ -74,24 +74,41 @@ class _HeartHomePageState extends State<HeartHomePage> {
       localHistory.add({'timestamp': now, 'bpm': bpm, 'mode': mode});
       if (localHistory.length > 50) localHistory.removeAt(0);
     });
+    
+    // 立即打印要上傳的資料
+    print('上傳資料: bpm=$bpm mode=$mode');
+
     uploadBPM(bpm);
   }
 
   Future<void> uploadBPM(int bpm) async {
-    try {
-      await http.post(
-        Uri.parse(uploadUrl),
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: {
-          'user_id': userId.toString(),
-          'bpm': bpm.toString(),
-          'mode': mode,
-        },
-      );
-    } catch (e) {
-      print('上傳失敗: $e');
+  try {
+    final response = await http.post(
+      Uri.parse(uploadUrl),
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: {
+        'user_id': userId.toString(),
+        'bpm': bpm.toString(),
+        'mode': mode,
+      },
+    );
+
+    // 立即打印 PHP 回傳的內容
+    print('回傳: ${response.body}');
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      if (data['status'] != 'success') {
+        print('上傳失敗: ${data['msg']}');
+      }
+    } else {
+      print('HTTP 錯誤: ${response.statusCode}');
     }
+  } catch (e) {
+    print('連線失敗: $e');
   }
+}
+
 
   Future<void> fetchBPMData() async {
     try {
